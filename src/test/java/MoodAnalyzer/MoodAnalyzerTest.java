@@ -3,8 +3,9 @@
  */
 package MoodAnalyzer;
 
-public class Library {
-    public boolean someLibraryMethod() {
-        return true;
-    }
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class MoodAnalyzerTest {
+
 }
