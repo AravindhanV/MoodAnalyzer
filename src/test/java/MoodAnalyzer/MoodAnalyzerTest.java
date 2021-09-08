@@ -6,6 +6,14 @@ package MoodAnalyzer;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class MoodAnalyzerTest {
+import org.hamcrest.CoreMatchers;
+import org.junit.Assert;
 
+public class MoodAnalyzerTest {
+	@Test
+	public void analyzeMood_SadMessage_SAD() throws Exception {
+		MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
+		String mood = moodAnalyzer.analyzeMood("This is a sad message");
+		Assert.assertThat(mood, CoreMatchers.is("SAD"));
+	}
 }
