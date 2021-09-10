@@ -4,6 +4,8 @@
 package MoodAnalyzer;
 
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
 import static org.junit.Assert.*;
 
 import org.hamcrest.CoreMatchers;
@@ -28,8 +30,14 @@ public class MoodAnalyzerTest {
 	public void analyseMood_givenNullMood_HAPPY() {
     	MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
 
+    	try {
+        ExpectedException exceptionRule = ExpectedException.none();
+        exceptionRule.expect(MoodAnalysisException.class);
         String mood=moodAnalyzer.analyzeMood(null);
-        Assert.assertEquals("HAPPY",mood);
-
+        Assert.assertEquals("HAPPY", mood);
+    	}
+    	catch(MoodAnalysisException e) {
+    		e.printStackTrace();
+    	}
     }
 }
