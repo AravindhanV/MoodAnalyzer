@@ -28,14 +28,27 @@ public class MoodAnalyzerTest {
 
 	@Test
 	public void analyseMood_givenNullMood_HAPPY() {
-		MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
+		
 
 		try {
-			ExpectedException exceptionRule = ExpectedException.none();
-			exceptionRule.expect(MoodAnalysisException.class);
+			MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
 			String mood = moodAnalyzer.analyzeMood(null);
 		} catch (MoodAnalysisException e) {
 			Assert.assertEquals(MoodAnalysisException.ExceptionType.ENTERED_NULL,e.type);
 		}
 	}
+	
+	 @Test 
+	 public void analyseMood_givenEmptyMood_HAPPY() {
+	    	
+	    	try {
+	    		MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
+				moodAnalyzer.analyzeMood("");
+				
+			} catch (MoodAnalysisException e) {
+				Assert.assertEquals(MoodAnalysisException.ExceptionType.ENTERED_EMPTY,e.type);;
+			}
+	       
+	    	
+	    }
 }
