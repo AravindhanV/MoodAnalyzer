@@ -4,11 +4,15 @@
 package MoodAnalyzer;
 
 public class MoodAnalyzer {
-    public String analyzeMood(String message) {
-    	if(message.contains(("sad"))) {
-    		return "SAD";
-    	} else {
-    		return "HAPPY";
-    	}
-    }
+	public String analyzeMood(String message) {
+		try {
+			if (message.contains(("sad"))) {
+				return "SAD";
+			} else {
+				return "HAPPY";
+			}
+		} catch (NullPointerException e) {
+			return "HAPPY";
+		}
+	}
 }
